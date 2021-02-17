@@ -1,0 +1,60 @@
+<div class="d1" *ngIf="!isLoading" >
+
+  <!-- <div class="container d2" *ngIf="!condition">--> 
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered border-info">
+                    <thead>
+                        <tr> <th scope="col">stu_id</th>
+                            <th scope="col">firstname</th>
+                            <th scope="col">lastname</th>
+                            <th scope="col">regno</th>
+                            <th scope="col">department</th>
+                            <th scope="col">year</th>
+                            <th scope="col">dob</th>
+                            <th scope="col">addr_id</th>
+                            <th scope="col">doorno</th>
+                            <th scope="col">area</th>
+                            <th scope="col">place</th>
+                            <th scope="col">pincode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row" *ngFor="let item of items">
+                            <td>{{item.stu_id}}</td>
+                            <td>{{item.firstname}}</td>
+                            <td>{{item.lastname}}</td>
+                            <td>{{item.regno}}</td>
+                            <td>{{item.department}}</td>
+                            <td>{{item.year}}</td>
+                            <td>{{item.dob | date:'shortDate'}}</td>
+                            <td>{{item.address?.addr_id}}</td>
+                            <td>{{item.address?.street}}</td>
+                            <td>{{item.address?.area}}</td>
+                            <td>{{item.address?.place}}</td>
+                            <td>{{item.address?.pincode}}</td>  
+                          <td><button type="button" class="btn btn-primary" (click)="Edit(item)">Edit</button></td>
+
+                             <td><button type="button" class="btn btn-primary" (click)="deleteEntry(item.stu_id)">Delete</button></td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+        <div class="row"><button type="button" class="btn btn-primary" (click)="show()">Show</button></div><br>
+    </div>
+<!--</div>-->
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+    <div class="spinner-border-lg" role="status" >
+        <span class="sr-only" id="loading">
+         
+        </span>
+    </div>
+</div>
+<div class="d3 container-fluid bg-primary" *ngIf="!isLoading">
+    <footer class="d3">Copyright &copy; 2021. All rights Reserved. xyzcollege.com</footer>
+</div>
